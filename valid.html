@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <title>Form Validation</title>
+</head>
+<body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-2 mx-auto p-4  bg-light">
+                      <form id="myForm">
+
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" class="form-control validate-field"
+           data-type="email"
+           data-required="true"
+           data-message="Enter a valid email">
+    <div class="invalid-feedback"></div>
+  </div>
+
+  <div class="mb-3">
+    <label>Name</label>
+    <input type="text" class="form-control validate-field"
+           data-type="text"
+           data-required="true"
+           data-message="Name is required">
+    <div class="invalid-feedback"></div>
+  </div>
+
+  <div class="mb-3">
+    <label>NIC</label>
+    <input type="text" class="form-control validate-field"
+           data-type="nic"
+           data-required="true"
+           data-message="Enter valid NIC">
+    <div class="invalid-feedback"></div>
+  </div>
+
+  <div class="mb-3">
+    <label>Description</label>
+    <textarea class="form-control validate-field"
+              data-type="text"
+              data-required="true"
+              data-message="Description required"></textarea>
+    <div class="invalid-feedback"></div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>  
+                </div>
+            </div>
+        </div>
+<script>
+    function validateField(field) {
+
+    let value = $(field).val().trim();
+    let type = $(field).data("type");
+    let required = $(field).data("required");
+    let message = $(field).data("message");
+
+    let valid = true;
+
+    // Required check
+    if (required && value === "") {
+        valid = false;
+    }
+
+    // Email validation
+    if (type === "email" && value !== "") {
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        valid = emailRegex.test(value);
+    }
+
+    // NIC validation (Sri Lankan NIC)
+    if (type === "nic" && value !== "") {
+        let nicRegex = /^([0-9]{9}[vVxX]|[0-9]{12})$/;
+        valid = nicRegex.test(value);
+    }
+
+    // Text validation
+    if (type === "text" && value !== "") {
+        valid = value.length >= 2;
+    }
+
+    // Bootstrap UI update
+    if (!valid) {
+        $(field).addClass("is-invalid").removeClass("is-valid");
+        $(field).next(".invalid-feedback").text(message);
+    } else {
+        $(field).removeClass("is-invalid").addClass("is-valid");
+    }
+    return valid;
+}
+
+$("#myForm").submit(function (e) {
+
+    let valid = true;
+
+    $(".validate-field").each(function () {
+        if (!validateField(this)) {
+            valid = false;
+        }
+    });
+
+    if (!valid) {
+        e.preventDefault();
+    }
+
+});
+</script>
+</body>
+</html>

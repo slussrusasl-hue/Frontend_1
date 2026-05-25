@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center mt-2">
+                <h1>New Functions</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ms-3">
+                <label class="form-label">Number</label>
+                <input type="number" class="form-control" id="number">
+                <input type="button" class="btn btn-primary mt-2" value="submit" id="click">
+            </div>  
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-2 ms-3">
+                <div class="alert alert-success" id="answer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-md-4 mt-2 ms-5">
+                <label class="form-label">Radius</label>
+                <input type="number" class="form-control" id="rad">
+                <input type="button" class="btn btn-primary mt-2" value="submit" id="get">
+                <div class="alert alert-success mt-2" id="cir"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-2" ms-3>
+                <h2>Roll a Dice!</h2>
+                <div class="alert alert-warning" id="num"></div>
+                <input type="button" class="btn btn-success mt-2" id="set" value="Get Number">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let value;
+        let number = 1;
+        
+
+        document.getElementById("click").onclick = function(){
+
+            value = document.getElementById("number").value;
+
+            if(value==0){
+                document.getElementById("answer").textContent = 1;
+            }
+            else{
+                for(let i = value; i>=1; i=i-1){
+                    number = number*i;
+                }
+                document.getElementById("answer").textContent = number;
+            }
+            
+
+            
+        }
+            const PI = (22/7);
+
+        document.getElementById("get").onclick = function(){
+
+            let radius = document.getElementById("rad").value;
+
+            let circumference = 2 * PI * radius;
+
+            document.getElementById("cir").textContent = circumference + "cm";
+        }
+                
+
+        document.getElementById("set").onclick = function(){
+                let dice = Math.floor(Math.random()*6);
+                console.log(dice);
+                document.getElementById("num").textContent = dice;
+        }
+
+    </script>
+    
+            
+</body>
+</html>

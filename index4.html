@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .bat{
+            margin-top: 15px;
+            margin-left: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 2em;
+            font-weight: 900;
+        }
+        #mysubmit{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+       <div class="bat">
+             <input type="checkbox" id="mycheckbox">
+        <label for="mycheckbox"> Select</label> <br>
+
+        <input type="radio" id="visa" name="card">
+        <label for="visa">Visa</label> <br>
+        <input type="radio" id="mastercard" name="card">
+        <label for="mastercard">Master Card</label> <br>
+        <input type="radio" id="paypal" name="card">
+        <label for="paypal">PayPal</label> <br><br>
+
+        <button type="submit" id="mysubmit">submit</button>
+        <br><br>
+
+        <div id="result"></div>
+        <div id="paytype"></div>
+       </div>
+       <script>
+            document.getElementById("mysubmit").onclick = function(){
+
+                    if(mycheckbox.checked){
+                        result.textContent = "You are selected";
+                    }
+                    else{
+                        result.textContent = "You are not selected";
+                    }
+
+                    if(visa.checked){
+                        paytype.textContent = "You selected Visa";
+                    }
+                    else if(mastercard.checked){
+                        paytype.textContent = "You selected Master Card";
+                    }
+                    else if(paypal.checked){
+                        paytype.textContent = "You selected Pay Pal";
+                    }
+                    else{
+                        paytype.textContent = "Plase select payment method!";
+                    }
+            }
+       </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>JavaScript</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        
+       
+
+      
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    <label class="form-label">1st Number:</label>
+                    <input type="number" class="form-control" id="first">
+                    <label class="form-label" >2nd Number:</label>
+                    <input type="number" class="form-control" id="second" >
+                    <input type="button" class="btn btn-primary mt-2" value="Get Sum" id="submit">
+                    <div class="alert alert-success mt-2 text-center" id="sum">Sum: </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ms-3 mt-4">
+                    <label form-label>Select Payment Method</label>
+                   <select id="pay" class="form-select mt-2">
+                    <option selected>Select from here</option>
+                    <option value="masterCard">Master Card</option>
+                    <option value="visaCard">Visa</option>
+                    <option value="americanExpress">American Express</option>
+                    <option value="payPal">Pay Pal</option>
+                   </select>
+                </div>
+            </div>
+        </div>
+
+        
+
+    
+     <script>
+      
+
+     let num1;
+        let num2;
+        let sum;
+
+        document.getElementById("submit").onclick = function () {
+
+            num1 = Number(document.getElementById("first").value);
+
+            num2 = Number(document.getElementById("second").value);
+
+            sum = num1 + num2;
+
+            document.getElementById("sum").textContent = "Sum: " + sum;
+        }
+
+
+       
+
+    </script>
+       
+    </body>
+</html>
