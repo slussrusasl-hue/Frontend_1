@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+   <div class="container">
+    <div class="row">
+        <div class="col-md-6 ms-5 mt-4">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age">
+            <br>
+            <label for="" class="form-label">Education</label>
+            <select class="form-select" id="edu">
+                <option selected>Select</option>
+                <option value="hnd">HND</option>
+                <option value="hdit">HDIT</option>
+                <option value="bit">BIT</option>
+            </select>
+            <br>
+            <input type="submit" value="submit" id="sub" class="btn btn-success">
+            <br>
+            <br>
+            <div class="alert alert-success" id="first"></div>
+            <div class="alert alert-warning" id="second"></div>
+            <div class="alert alert-danger" id="third"></div>
+        </div>
+    </div>
+   </div>
+
+   <script>
+
+            document.getElementById("sub").onclick = function(){
+
+                let age = document.getElementById("age").value;
+
+                let edu = document.getElementById("edu").value;
+
+                if((age>=25) && (edu =="bit")){
+                    first.textContent = "You can Apply as Software Engineer!";
+                }
+                if((age>=18) || (edu == "hdit")){
+                    second.textContent = "You can Apply as Progarmmer!";
+                }
+                if((age>=18) || (edu =="hnd")){
+                    third.textContent = "You can Apply as Begginer!";
+                }
+            }
+   </script>
+   <script>
+
+            let val = 0;
+
+            while(val<=10){
+                console.log(val);
+                val+=1;
+            }
+
+   </script>
+    
+</body>
+  
+</html>
