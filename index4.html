@@ -36,6 +36,74 @@
         <div id="result"></div>
         <div id="paytype"></div>
        </div>
+
+       <label for="age">Enter Age</label>
+       <input type="number" id="age">
+       <input type="submit" value="submit" id="onsubmit">
+
+       <div id="myage"></div>
+
+       <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                     <label for="" class="form-label">Select Month</label>
+                     <select  id="month" class="form-select">
+                        <option selected>Select</option>
+                        <option value="1">March, April, May</option>
+                        <option value="2">June, July, August</option>
+                        <option value="3">September, October, November</option>
+                        <option value="4">December, January, February</option>
+                    </select>
+                    <div class="mt-4">
+                        <input type="submit" value="sened" id="getSeason">
+                    </div>
+                    <div class="alert alert-success mt-4" id="season">
+
+                    </div>
+                </div>
+            </div>
+       </div>
+
+        <script>
+            document.getElementById("getSeason").onclick = function() {
+
+                let int =   parseInt(document.getElementById("month").value);
+
+                switch (int){
+
+                    case 1:
+                        season.textContent = "Season is Spring!";
+                        break;
+                    
+                    case 2:
+                        season.textContent = "Season is Summer";
+                        break;
+                    case 3:
+                        season.textContent = "Season is Autumn (Fall)";
+                        break;
+                    case 4:
+                        season.textContent = "Season is Winter";
+                        break;
+
+                    default:
+                        season.textContent = "It's Not valid month";
+                        break;
+                }
+            }
+        </script>
+       
+       <script>
+                document.getElementById("onsubmit").onclick = function() {
+
+                    let age  = document.getElementById("age").value;
+
+                    let message = age>18 ? "You are Adult": "You are Children";
+
+                    myage.textContent = message;
+                }
+
+       </script>
+       
        <script>
             document.getElementById("mysubmit").onclick = function(){
 
@@ -59,6 +127,30 @@
                         paytype.textContent = "Plase select payment method!";
                     }
             }
+       </script>
+       <script>
+
+            userName = "            Krishan      ";
+
+            console.log(userName);
+            userName = userName.trim();
+            console.log(userName);
+            userName = userName.toUpperCase();
+            console.log(userName);
+            userName = userName.repeat(5);
+            console.log(userName);
+
+            let phoneNumber = "076-0179951";
+            phoneNumber = phoneNumber.replaceAll("-", "@")
+            console.log(phoneNumber);
+
+            let cast = "Gnagster Paradise!";
+
+            let firstName = cast.slice(0, 8);
+            let lastName = cast.slice(9, 17);
+
+            console.log(firstName);
+            console.log(lastName);
        </script>
 </body>
 </html>
