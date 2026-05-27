@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Systems</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ms-5 mt-4">
+                <label for="" class="form-label">Enter Value</label>
+                <input type="number" class="form-control" id="num">
+                <input type="submit" class="btn btn-primary" id="onsubmit">
+                <br>
+                <div class="alert alert-success" id="val"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("onsubmit").onclick = function(){
+
+                let number =  document.getElementById("num").value;
+
+                if(number<20){
+
+                    while(number<=20){
+                        val.textContent = document.writeln(number);
+                        number++;
+                    }
+                }
+                else{
+                    val.textContent = "The Number is Greater than 20!";
+                }
+        }
+    </script>
+    
+</body>
+</html>
